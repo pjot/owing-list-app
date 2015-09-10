@@ -1,0 +1,33 @@
+<ion-modal-view>
+    <div class="card">
+        <ion-item class="item-divider item-icon-right">
+            Settlements
+            <button
+                class="button button-small button-clear icon ion-close-round"
+                on-tap="settleModal.hide()"    
+            >
+            </button>
+        </ion-item>
+        <ion-item ng-repeat="settlement in settlements">
+            <div class="row">
+                <div class="col">
+                    {{ settlement.from }}
+                    <i class="icon ion-arrow-right-c padding-left"></i>
+                </div>
+                <div class="col center">{{ settlement.amount | currency_display }} SEK</div>
+                <div class="col right">
+                    <i class="icon ion-arrow-right-c padding-right"></i>
+                    {{ settlement.to }}
+                </div>
+            </div>
+        </ion-item>
+        <ion-item>
+            <button
+                class="button button-block button-positive"
+                on-tap="settle()"
+            >
+                Settle all
+            </button>
+        </ion-item>
+    </div>
+</ion-modal-view>

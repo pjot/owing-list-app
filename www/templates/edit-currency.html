@@ -1,0 +1,30 @@
+<ion-modal-view>
+    <div class="card">
+        <div class="item item-divider item-icon-right">
+            Edit Currency
+            <button
+                class="button button-small button-clear icon ion-close-round"
+                on-tap="currencyModal.hide()"    
+            >
+            </button>
+        </div>
+        <div class="item">
+            <input type="hidden" bg-model="currency.id" value="{{ currency.id }}" />
+            <label class="item item-input">
+                <span class="input-label">Name</span>
+                <input type="text" ng-model="currency.name" value="{{ currency.name }}" />
+            </label>
+            <label class="item item-input">
+                <span class="input-label">Rate (1 <span ng-bind="currency.name"></span> in {{ default_currency.name }})</span>
+                <input type="text" ng-model="currency.rate" value="{{ currency.rate }}" />
+            </label>
+            <ion-toggle ng-model="currency.is_active">Active</ion-toggle>
+            <button
+                class="button button-block button-positive"
+                on-tap="saveCurrency(currency)"
+                >
+                Save
+            </button>
+        </div>
+    </div>
+</ion-modal-view>

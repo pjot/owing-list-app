@@ -1,0 +1,52 @@
+<ion-modal-view>
+    <div class="card">
+        <div class="item item-divider item-icon-right">
+            Add payment
+            <button
+                class="button button-small button-clear icon ion-close-round"
+                on-tap="paymentModal.hide()"    
+            >
+            </button>
+        </div>
+        <label class="item item-input item-floating-label">
+            <span class="input-label">Person</span>
+            <input
+                type="text"
+                ng-model="payment.person"
+                placeholder="Person"
+                ng-click="selectPerson()"
+            />
+        </label>
+        <label class="item item-input item-floating-label">
+            <span class="input-label">Amount</span>
+            <input type="text" ng-model="payment.amount" placeholder="Amount" />
+        </label>
+        <label class="item item-input item-floating-label">
+            <span class="input-label">Currency</span>
+            <input
+                type="text"
+                ng-model="payment.currency_name"
+                placeholder="Currency"
+                ng-click="selectCurrency()"
+            />
+        </label>
+        <ion-toggle ng-model="payment.whole_group">
+            Whole group
+        </ion-toggle>
+        <ion-toggle
+            ng-repeat="person in list.people"
+            ng-show=" ! payment.whole_group"
+            ng-model="payment.people[person.name].enabled"
+        >
+            {{ person.name }}
+        </ion-toggle>
+        <ion-item>
+            <button
+                class="button button-block button-positive"
+                on-tap="addPayment(payment)"
+                >
+                Add
+            </button>
+        </ion-item>
+    </div>
+</ion-modal-view>

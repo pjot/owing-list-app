@@ -1,0 +1,9 @@
+.col.center { text-align: center; }
+.col.right  { text-align: right; } 
+.item-toggle { pointer-events: initial !important; }
+.item-toggle a.currency_link { 
+    display: block;
+    width: 100%;
+    text-decoration: none;
+    color: rgb(68, 68, 68);
+}

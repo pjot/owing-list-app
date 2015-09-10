@@ -1,0 +1,27 @@
+<ion-modal-view>
+    <div class="card">
+        <div class="item item-divider item-icon-right">
+           Welcome
+        </div>
+        <div class="item">
+            <div class="item item-text-wrap">
+                In order to start using the application
+                you need to enter your preferred native
+                currency.
+                <br />
+                <br />
+                You can change the name of this later.
+            </div>
+            <label class="item item-input">
+                <span class="input-label">Currency name</span>
+                <input type="text" ng-model="currency.name" />
+            </label>
+            <button
+                class="button button-block button-positive"
+                on-tap="saveCurrency(currency)"
+                >
+                Save and start!
+            </button>
+        </div>
+    </div>
+</ion-modal-view>

@@ -1,0 +1,24 @@
+<ion-modal-view>
+    <div class="card">
+        <div class="item item-divider item-icon-right">
+            Add person
+            <button
+                class="button button-small button-clear icon ion-close-round"
+                on-tap="personModal.hide()"    
+            >
+            </button>
+        </div>
+        <div class="item">
+            <label class="item-input">
+                <span class="input-label">Name</span>
+                <input type="text" ng-model="person.name">
+            </label>
+            <button
+                class="button button-block button-positive"
+                on-tap="addPerson(person)"
+                >
+                Add
+            </button>
+        </div>
+    </div>
+</ion-modal-view>

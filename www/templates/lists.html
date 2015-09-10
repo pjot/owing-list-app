@@ -1,0 +1,34 @@
+<ion-view view-title="">
+    <ion-nav-buttons side="secondary">
+        <button 
+            class="button button-icon icon ion-plus-round"
+            on-tap="showAddListModal()">
+        </button>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="primary">
+        <a
+            class="button button-icon icon ion-settings"
+            href="#/settings">
+        </a>
+    </ion-nav-buttons>
+    <ion-content>
+        <ion-list>
+            <ion-item class="item-divider">Owing Lists</ion-item>
+            <ion-item
+                ng-repeat="list in lists track by $index"
+                type="item-text-wrap"
+                show-delete="true"
+                href="#/lists/{{ list.id }}"
+            >
+                <ion-delete-button
+                    class="ion-minus-circled"
+                    on-tap="removeList(list)"
+                >
+                </ion-delete-button>
+
+                {{ list.name }}
+
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,55 @@
+<ion-view view-title="{{ list.name }}">
+    <ion-nav-buttons side="left">
+        <a
+            class="button button-icon icon ion-arrow-left-c"
+            href="#/lists"
+            >
+        </a>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+        <button
+            class="button button-icon icon ion-thumbsup"
+            on-tap="showSettleModal()">
+        </button>
+        <button 
+            class="button button-icon icon ion-card"
+            on-tap="showAddPaymentModal()">
+        </button>
+        <button 
+            class="button button-icon icon ion-person-add"
+            on-tap="showAddPersonModal()">
+        </button>
+    </ion-nav-buttons>
+    <ion-content>
+        <ion-list>
+            <ion-item class="item-divider">
+                Balances
+                <span class="item-note">{{ default_currency.name }}</span>
+            </ion-item>
+            <ion-item ng-repeat="balance in balances">
+                {{ balance.person }}
+                <span
+                    class="item-note" 
+                    ng-class="(balance.amount < 0) ? 'assertive' : 'balanced'"
+                    >
+                    {{ balance.amount | currency_display }}
+                </span>
+            </ion-item>
+            <ion-item class="item-divider">
+                Payments
+            </ion-item>
+            <ion-item ng-repeat="payment in getPayments()">
+                {{ payment.person }}
+                <span class="item-note dark">
+                    {{ payment.amount | currency_display }} {{ getCurrencyName(payment.currency_id) }}
+                </span>
+                <span 
+                    class="item-note padding-right"
+                    ng-show="(payment.currency_id != default_currency.id)"
+                    >
+                    ({{ inDefaultCurrency(payment.amount, payment.currency_id) | currency_display }} {{ default_currency.name }})
+                </span>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>
