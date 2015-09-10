@@ -1,7 +1,7 @@
 angular.module('owings.services', [])
 
 .factory('LocalStore', function () {
-    var key = 'owing-list-app-pjot.se',
+    var key = 'owie-pjot.se',
         data = false;
 
     var loadData = function () {
